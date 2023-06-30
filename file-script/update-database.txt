@@ -1,0 +1,14 @@
+//Update "file_size" colum to null
+ALTER TABLE `lecture` CHANGE `file_size` `file_size` BIGINT NULL;
+//Public view default as false
+ALTER TABLE `lecture` CHANGE `public_view` `public_view` TINYINT(1) NULL DEFAULT '0';
+//
+ALTER TABLE `lecture` DROP `video_duration`;
+//Drop table "course_enrollment"
+DROP TABLE `course_enrollment`;
+// change attributes in course orders
+ALTER TABLE `course_order` DROP `course_order_status`, DROP `course_id`, DROP `course_order_id`, DROP `discount`;
+// update 
+ALTER TABLE `intended_learner` CHANGE `sentence` `sentence` VARCHAR(160) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL;
+//update "content_type" colum to null
+ALTER TABLE `lecture` CHANGE `content_type` `content_type` VARCHAR(32) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NULL DEFAULT NULL;
