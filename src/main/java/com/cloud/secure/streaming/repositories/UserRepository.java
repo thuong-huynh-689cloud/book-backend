@@ -1,13 +1,10 @@
-package com.cloud.secure.ecommerce.repositories;
+package com.cloud.secure.streaming.repositories;
 
-import com.cloud.secure.ecommerce.common.enums.Status;
-import com.cloud.secure.ecommerce.common.enums.UserRole;
-import com.cloud.secure.ecommerce.entities.User;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
+import com.cloud.secure.streaming.common.enums.Status;
+import com.cloud.secure.streaming.common.enums.UserRole;
+import com.cloud.secure.streaming.entities.User;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -25,15 +22,16 @@ public interface UserRepository extends PagingAndSortingRepository<User, String>
 
     User findByEmailAndStatus(String email, Status status);
 
-    @Query("select u from User u where u.status = :status and (u.lastName like :searchKey or u.firstName like :searchKey)")
-    Page<User> getByLastNameAndFirstNameContaining(@Param("status") Status status,
-                                                   @Param("searchKey") String searchKey,
-                                                   Pageable pageable);
+//    @Query("select u from User u where u.status = :status and (u.lastName like :searchKey or u.firstName like :searchKey)")
+//    Page<User> getByLastNameAndFirstNameContaining(@Param("status") Status status,
+//                                                   @Param("searchKey") String searchKey,
+//                                                   Pageable pageable);
 
 
     List<User> findAllByIdInAndStatus(List<String> ids, Status status);
 
     User findByEmail(String email);
 
+    User findByEmailAndStatusAndRole(String email, Status status, UserRole userRole);
 }
 

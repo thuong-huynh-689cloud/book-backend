@@ -35,7 +35,7 @@ public class Validator {
      * @param RestAPIStatus
      * @param message
      */
-    public static void notNull(Object obj, RestAPIStatus RestAPIStatus, APIStatusMessage message) {
+    public static void notNull(Object obj, RestAPIStatus RestAPIStatus, String message) {
         if (obj == null) {
             throw new ApplicationException(RestAPIStatus, message);
         }
@@ -224,6 +224,13 @@ public class Validator {
     public static  void mustIn(String text, String[] texts, RestAPIStatus restAPIStatus, APIStatusMessage apiStatusMessage ){
         if (!Arrays.asList(texts).contains(text)) {
             throw new ApplicationException(restAPIStatus, apiStatusMessage);
+        }
+    }
+    public static void validPhoneNumber(String str) {
+        String regex = "\\d{8,15}";
+        boolean isPhone = str.matches(regex);
+        if (!isPhone) {
+            throw new ApplicationException(RestAPIStatus.INVALID_PHONE);
         }
     }
 }

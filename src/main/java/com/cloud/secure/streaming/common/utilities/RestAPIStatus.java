@@ -15,6 +15,7 @@ public enum RestAPIStatus {
     EXISTED(405, "Already existed"),
     BAD_PARAMS(406, "There is some invalid data"),
     EXPIRED(407, "Expired"),
+    INVALID_PHONE(408, "Invalid PhoneNumber"),
     INTERNAL_SERVER_ERROR(500, "Internal server error"),
     INVALID_CODE(601, "Invalid code"),
     CANNOT_ENCRYPT_RANDOM_PASSWORD(602, "Cannot encrypt random password"),

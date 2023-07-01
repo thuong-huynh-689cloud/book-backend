@@ -1,6 +1,6 @@
 package com.cloud.secure.streaming.controllers.model.response;
 
-import com.cloud.secure.streaming.common.enums.UserType;
+import com.cloud.secure.streaming.common.enums.UserRole;
 import com.cloud.secure.streaming.config.security.AuthUser;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,14 +15,12 @@ public class AuthInfoResponse {
     private String id;
     private String name;
     private String email;
-    private UserType type;
-    private String avatar;
+    private UserRole role;
 
     public AuthInfoResponse(AuthUser authUser) {
         this.id = authUser.getId();
-        this.name = authUser.getName();
+        this.name = authUser.getUsername();
         this.email = authUser.getEmail();
-        this.type = authUser.getType();
-        this.avatar = authUser.getAvatar();
+        this.role = authUser.getRole();
     }
 }

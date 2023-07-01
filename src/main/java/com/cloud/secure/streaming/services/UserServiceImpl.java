@@ -1,13 +1,9 @@
-package com.cloud.secure.ecommerce.services;
+package com.cloud.secure.streaming.services;
 
-import com.cloud.secure.ecommerce.common.enums.Status;
-import com.cloud.secure.ecommerce.common.enums.UserRole;
-import com.cloud.secure.ecommerce.entities.User;
-import com.cloud.secure.ecommerce.repositories.UserRepository;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
+import com.cloud.secure.streaming.common.enums.Status;
+import com.cloud.secure.streaming.common.enums.UserRole;
+import com.cloud.secure.streaming.entities.User;
+import com.cloud.secure.streaming.repositories.UserRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -27,7 +23,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User getId(String id) {
+    public User getById(String id) {
         return userRepository.findById(id).orElse(null);
     }
 
@@ -55,37 +51,42 @@ public class UserServiceImpl implements UserService {
     public List<User> getAllByIdInAndStatus(List<String> ids, Status status) {
         return userRepository.findAllByIdInAndStatus(ids, status);
     }
-
-    @Override
-    public Page<User> getByLastNameAndFirstNameContaining(String name, boolean isAsc, String field, int pageNumber, int pageSize) {
-        String properties = "";
-        switch (field){
-            case "firstName":
-                properties = "firstName";
-                break;
-            case "lastName":
-                properties = "lastName";
-                break;
-            case "status":
-                properties = "status";
-                break;
-            default:
-                properties = "createdDate";
-                break;
-        }
-        Sort.Direction direction = isAsc ? Sort.Direction.ASC : Sort.Direction.DESC;
-
-        Sort sort = Sort.by(direction, properties);
-
-        Pageable pageable = PageRequest.of(pageNumber - 1, pageSize, sort);
-
-        return userRepository.getByLastNameAndFirstNameContaining(Status.ACTIVE, "%" + name + "%", pageable);
-
-    }
+//
+//    @Override
+//    public Page<User> getByLastNameAndFirstNameContaining(String name, boolean isAsc, String field, int pageNumber, int pageSize) {
+//        String properties = "";
+//        switch (field){
+//            case "firstName":
+//                properties = "firstName";
+//                break;
+//            case "lastName":
+//                properties = "lastName";
+//                break;
+//            case "status":
+//                properties = "status";
+//                break;
+//            default:
+//                properties = "createdDate";
+//                break;
+//        }
+//        Sort.Direction direction = isAsc ? Sort.Direction.ASC : Sort.Direction.DESC;
+//
+//        Sort sort = Sort.by(direction, properties);
+//
+//        Pageable pageable = PageRequest.of(pageNumber - 1, pageSize, sort);
+//
+//        return userRepository.getByLastNameAndFirstNameContaining(Status.ACTIVE, "%" + name + "%", pageable);
+//
+//    }
 
     @Override
     public User getByEmail(String email) {
         return userRepository.findByEmail(email);
+    }
+
+    @Override
+    public User getByEmailAndStatusAndType(String email, Status status, UserRole userRole) {
+        return userRepository.findByEmailAndStatusAndRole(email, status, userRole);
     }
 
 

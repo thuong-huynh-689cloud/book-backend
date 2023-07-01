@@ -34,7 +34,7 @@ public class AuthSessionResolver implements HandlerMethodArgumentResolver {
         if (authSession != null) {
             try {
                 authUser = (AuthUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-                Validator.notNull(authUser, RestAPIStatus.UNAUTHORIZED, APIStatusMessage.UNAUTHORIZED);
+                Validator.notNull(authUser, RestAPIStatus.UNAUTHORIZED, "UNAUTHORIZED");
             } catch (Exception e) {
                 throw new ApplicationException(RestAPIStatus.UNAUTHORIZED, e.getMessage());
             }

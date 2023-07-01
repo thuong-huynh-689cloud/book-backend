@@ -35,14 +35,14 @@ public class SessionHelper {
      */
     public AuthUser getAuthUserByAuthToken(String authToken, SessionService sessionService, UserService userService) {
         Session session = sessionService.getById(authToken);
-        Validator.notNull(session, RestAPIStatus.UNAUTHORIZED, APIStatusMessage.UNAUTHORIZED);
+        Validator.notNull(session, RestAPIStatus.UNAUTHORIZED,"UNAUTHORIZED");
         // Check expired date
         if (DateUtil.convertToUTC(new Date()).getTime() >= session.getExpiryDate().getTime()) {
             throw new ApplicationException(RestAPIStatus.UNAUTHORIZED);
         }
         User user = userService.getById(session.getUserId());
-        Validator.notNull(user, RestAPIStatus.UNAUTHORIZED, APIStatusMessage.UNAUTHORIZED);
-        return new AuthUser(user, ZoneId.of(session.getZoneId()));
+        Validator.notNull(user, RestAPIStatus.UNAUTHORIZED,"UNAUTHORIZED");
+        return new AuthUser(user);
     }
 
     /**

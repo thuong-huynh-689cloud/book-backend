@@ -1,9 +1,10 @@
 package com.cloud.secure.streaming.config.security;
 
+import com.cloud.secure.streaming.common.enums.UserRole;
 import com.cloud.secure.streaming.common.exceptions.ApplicationException;
+
 import com.cloud.secure.streaming.common.utilities.Constant;
 import com.cloud.secure.streaming.controllers.helper.SessionHelper;
-import com.cloud.secure.streaming.common.enums.UserType;
 import com.cloud.secure.streaming.common.utilities.RestAPIStatus;
 import com.cloud.secure.streaming.services.SessionService;
 import com.cloud.secure.streaming.services.UserService;
@@ -53,8 +54,8 @@ public class AuthorizeValidatorInterceptor {
     }
 
     public boolean isValidate(AuthUser authUser, AuthorizeValidator types) {
-        for (UserType type : types.value()) {
-            if(type == authUser.getType())
+        for (UserRole type : types.value()) {
+            if(type == authUser.getRole())
                 return true;
         }
 

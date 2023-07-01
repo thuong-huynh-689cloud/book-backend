@@ -1,8 +1,8 @@
-package com.cloud.secure.ecommerce.entities;
-
-import com.cloud.secure.ecommerce.common.enums.Status;
-import com.cloud.secure.ecommerce.common.enums.UserRole;
+package com.cloud.secure.streaming.entities;
+import com.cloud.secure.streaming.common.enums.Status;
+import com.cloud.secure.streaming.common.enums.UserRole;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -34,9 +34,6 @@ public class User extends BaseEntity implements Serializable {
     @Column(name = "email", length = 255)
     private String email;
 
-    @Column(name = "password_hash", length = 32)
-    private String passwordHash;
-
     @Column(name = "first_name", length = 255)
     private String firstName;
 
@@ -56,4 +53,11 @@ public class User extends BaseEntity implements Serializable {
     @Column(name = "phone_number", length = 45)
     private String phoneNumber;
 
+    @Column(nullable = false, columnDefinition = "TEXT")
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private String passwordHash;
+
+    @Column(nullable = false, length = 16)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private String passwordSalt;
 }

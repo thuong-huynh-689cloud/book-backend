@@ -1,7 +1,7 @@
 package com.cloud.secure.streaming.config.security;
 
 
-import com.cloud.secure.streaming.common.enums.UserType;
+import com.cloud.secure.streaming.common.enums.UserRole;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -14,5 +14,5 @@ import java.lang.annotation.Target;
 @Target({ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface AuthorizeValidator {
-    UserType[] value() default UserType.SYSTEM_ADMIN;
+    UserRole[] value() default UserRole.ADMIN;
 }

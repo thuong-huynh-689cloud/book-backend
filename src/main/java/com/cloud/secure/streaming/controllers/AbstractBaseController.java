@@ -22,5 +22,4 @@ public abstract class AbstractBaseController {
 
     @Autowired
     PasswordEncoder passwordEncoder;
-
 }

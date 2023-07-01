@@ -1,13 +1,13 @@
-package com.cloud.secure.ecommerce.controllers.helper;
+package com.cloud.secure.streaming.controllers.helper;
 
-import com.cloud.secure.ecommerce.common.enums.Status;
-import com.cloud.secure.ecommerce.common.enums.UserRole;
-import com.cloud.secure.ecommerce.common.exceptions.ApplicationException;
-import com.cloud.secure.ecommerce.common.utils.*;
-import com.cloud.secure.ecommerce.controllers.model.request.CreateSignUpRequest;
-import com.cloud.secure.ecommerce.controllers.model.request.CreateUserRequest;
-import com.cloud.secure.ecommerce.controllers.model.request.UpdateUserRequest;
-import com.cloud.secure.ecommerce.entities.User;
+import com.cloud.secure.streaming.common.enums.Status;
+import com.cloud.secure.streaming.common.enums.UserRole;
+import com.cloud.secure.streaming.common.exceptions.ApplicationException;
+import com.cloud.secure.streaming.common.utilities.*;
+import com.cloud.secure.streaming.controllers.model.request.CreateSignUpRequest;
+import com.cloud.secure.streaming.controllers.model.request.CreateUserRequest;
+import com.cloud.secure.streaming.controllers.model.request.UpdateUserRequest;
+import com.cloud.secure.streaming.entities.User;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
@@ -32,7 +32,7 @@ public class UserHelper {
         //add date to data
         user.setCreatedDate(DateUtil.convertToUTC(new Date()));
         //add salt to data
-        String newSalt = AppUtils.generateSalt();
+        String newSalt = AppUtil.generateSalt();
         user.setSalt(newSalt);
         //add password
         if (createUserRequest.getNewPassword().equals(createUserRequest.getConfirmNewPassword())) {
@@ -79,7 +79,7 @@ public class UserHelper {
         User user = new User();
         user.setId(UniqueID.getUUID());
         user.setEmail(createSignUpRequest.getEmail());
-        String newSalt = AppUtils.generateSalt();
+        String newSalt = AppUtil.generateSalt();
         user.setSalt(newSalt);
         user.setPasswordHash(passwordEncoder.encode(createSignUpRequest.getPasswordHash().trim().concat(user.getSalt())));
         user.setRole(UserRole.CUSTOMER);

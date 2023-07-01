@@ -1,4 +1,4 @@
-package com.cloud.secure.ecommerce.common.enums;
+package com.cloud.secure.streaming.common.enums;
 
 /**
  * @author 689Cloud

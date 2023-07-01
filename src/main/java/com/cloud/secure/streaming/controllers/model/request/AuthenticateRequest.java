@@ -1,6 +1,6 @@
 package com.cloud.secure.streaming.controllers.model.request;
 
-import com.cloud.secure.streaming.common.enums.UserType;
+import com.cloud.secure.streaming.common.enums.UserRole;
 import com.cloud.secure.streaming.common.utilities.ParamError;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
@@ -26,7 +26,7 @@ public class AuthenticateRequest {
 
     private boolean keepLogin;
 
-    private UserType userType;
+    private UserRole userRole;
 
     @NotBlank(message = ParamError.FIELD_NAME)
     private String zoneId;

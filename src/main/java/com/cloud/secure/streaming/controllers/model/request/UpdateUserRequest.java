@@ -1,4 +1,4 @@
-package com.cloud.secure.ecommerce.controllers.model.request;
+package com.cloud.secure.streaming.controllers.model.request;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;

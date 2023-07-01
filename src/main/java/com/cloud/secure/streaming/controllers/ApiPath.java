@@ -59,4 +59,8 @@ public interface ApiPath {
     String ADD_POINT_API = BASE_API_PATH + "/add-point";
 
     String POINT_HISTORY_API = BASE_API_PATH + "/point-history";
+
+
+
+    String ID = "/{id}";
 }
