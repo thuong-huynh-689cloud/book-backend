@@ -1,89 +1,91 @@
-package com.cloud.secure.streaming.controllers.helper;
+package com.cloud.secure.ecommerce.controllers.helper;
 
-import com.cloud.secure.streaming.common.enums.AppStatus;
-import com.cloud.secure.streaming.common.enums.UserType;
-import com.cloud.secure.streaming.common.exceptions.ApplicationException;
-import com.cloud.secure.streaming.common.utilities.*;
-import com.cloud.secure.streaming.controllers.model.request.CreateUserRequest;
-import com.cloud.secure.streaming.entities.User;
+import com.cloud.secure.ecommerce.common.enums.Status;
+import com.cloud.secure.ecommerce.common.enums.UserRole;
+import com.cloud.secure.ecommerce.common.exceptions.ApplicationException;
+import com.cloud.secure.ecommerce.common.utils.*;
+import com.cloud.secure.ecommerce.controllers.model.request.CreateSignUpRequest;
+import com.cloud.secure.ecommerce.controllers.model.request.CreateUserRequest;
+import com.cloud.secure.ecommerce.controllers.model.request.UpdateUserRequest;
+import com.cloud.secure.ecommerce.entities.User;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
-/**
- * @author 689Cloud
- */
 @Component
 public class UserHelper {
-
-    /**
-     * createUser
-     *
-     * @param createUserRequest
-     * @param passwordEncoder
-     * @return
-     */
-    public User createUser(CreateUserRequest createUserRequest, PasswordEncoder passwordEncoder, String passwordMD5) {
+    public User createUser(CreateUserRequest createUserRequest, PasswordEncoder passwordEncoder) {
         User user = new User();
-        // add Id to data
+        //add id to data
         user.setId(UniqueID.getUUID());
-        // add email to data
+        //add id to role
+        user.setRole(createUserRequest.getRole());
+        //add email to data
         user.setEmail(createUserRequest.getEmail());
-        // add name to data
-        user.setName(createUserRequest.getName());
-        // add gender to data
-        user.setGender(createUserRequest.getGender());
-        // add countryCode
-        user.setCountryCode(createUserRequest.getCountryCode());
-        // add phone to data
-        user.setPhone(createUserRequest.getPhone());
-        // add avatar to data
-        user.setAvatar(createUserRequest.getAvatar());
-        // add date to data
-        if (createUserRequest.getDob() != null && !createUserRequest.getDob().isEmpty()) {
-            try {
-                Date date = new SimpleDateFormat(Constant.API_FORMAT_DATE).parse(createUserRequest.getDob());
-                user.setDob(date);
-            } catch (ParseException e) {
-                e.printStackTrace();
-                throw new ApplicationException(RestAPIStatus.BAD_PARAMS, "Invalid Dob format MM/dd/yyyy");
-            }
-        }
-        // add country to data
-        user.setCountry(createUserRequest.getCountry());
-        // add phoneDialCode
-        user.setPhoneDialCode(createUserRequest.getPhoneDialCode());
-        // add city to data
-        user.setCity(createUserRequest.getCity());
-        // add website to data
-        user.setWebsite(createUserRequest.getWebsite());
-        // add twitter to data
-        user.setTwitter(createUserRequest.getTwitter());
-        // add facebook to data
-        user.setFacebook(createUserRequest.getFacebook());
-        // add linkedin to data
-        user.setLinkedin(createUserRequest.getLinkedin());
-        // add youtube to data
-        user.setYoutube(createUserRequest.getYoutube());
-        // add description to data
-        user.setDescription(createUserRequest.getDescription());
-        //add salt to data
-        String newSalt = AppUtil.generateSalt();
-        user.setPasswordSalt(newSalt);
-        //add password
-        user.setPasswordHash(passwordEncoder.encode(passwordMD5.concat(user.getPasswordSalt())));
-        //add role
-        user.setType(createUserRequest.getType());
+        //add fist name to data
+        user.setFirstName(createUserRequest.getFistName());
+        //add last name to data
+        user.setLastName(createUserRequest.getLastName());
         //add status to data
-        user.setStatus(AppStatus.ACTIVE);
-        // add createDate to data
+        user.setStatus(Status.ACTIVE);
+        //add date to data
         user.setCreatedDate(DateUtil.convertToUTC(new Date()));
-        // add total point to data
-        user.setTotalPoint(0.0);
+        //add salt to data
+        String newSalt = AppUtils.generateSalt();
+        user.setSalt(newSalt);
+        //add password
+        if (createUserRequest.getNewPassword().equals(createUserRequest.getConfirmNewPassword())) {
+            // encode password
+            user.setPasswordHash(passwordEncoder.encode(createUserRequest.getNewPassword().trim().concat(user.getSalt())));
+        } else {
+            throw new ApplicationException(RestAPIStatus.FAIL, "password incorrect, please try again");
+        }
+        //add address to data
+        user.setAddress(createUserRequest.getAddress());
+        // add phoneNumber to data
+        user.setPhoneNumber(createUserRequest.getPhoneNumber());
+
+        return user;
+    }
+
+    public User updateUser(User user, UpdateUserRequest updateUserRequest, PasswordEncoder passwordEncoder) {
+        // check fist name
+        if (updateUserRequest.getFirstName() != null && !updateUserRequest.getFirstName().trim().isEmpty() &&
+                !updateUserRequest.getFirstName().trim().equals(user.getFirstName())) {
+            user.setFirstName(updateUserRequest.getFirstName().trim());
+        }
+        //check last name
+        if (updateUserRequest.getLastName() != null && !updateUserRequest.getLastName().trim().isEmpty() &&
+                !updateUserRequest.getLastName().trim().equals(user.getLastName())) {
+            user.setLastName(updateUserRequest.getLastName().trim());
+        }
+
+        if (updateUserRequest.getAddress() != null && !updateUserRequest.getAddress().trim().isEmpty() &&
+                !updateUserRequest.getAddress().trim().equals(user.getAddress())) {
+            user.setAddress(updateUserRequest.getAddress());
+        }
+        // validate phone number
+        if (updateUserRequest.getPhoneNumber() != null && !updateUserRequest.getPhoneNumber().isEmpty() &&
+                !updateUserRequest.getPhoneNumber().equals(user.getPhoneNumber())) {
+            Validator.validPhoneNumber(updateUserRequest.getPhoneNumber().trim());
+            user.setPhoneNumber(updateUserRequest.getPhoneNumber());
+        }
+
+        return user;
+    }
+
+    public User createSignUp(CreateSignUpRequest createSignUpRequest, PasswordEncoder passwordEncoder) {
+        User user = new User();
+        user.setId(UniqueID.getUUID());
+        user.setEmail(createSignUpRequest.getEmail());
+        String newSalt = AppUtils.generateSalt();
+        user.setSalt(newSalt);
+        user.setPasswordHash(passwordEncoder.encode(createSignUpRequest.getPasswordHash().trim().concat(user.getSalt())));
+        user.setRole(UserRole.CUSTOMER);
+        user.setStatus(Status.PENDING);
 
         return user;
     }
 }
+

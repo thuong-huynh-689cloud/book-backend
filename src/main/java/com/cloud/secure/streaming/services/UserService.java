@@ -1,18 +1,31 @@
-package com.cloud.secure.streaming.services;
+package com.cloud.secure.ecommerce.services;
 
-import com.cloud.secure.streaming.common.enums.AppStatus;
-import com.cloud.secure.streaming.common.enums.UserType;
-import com.cloud.secure.streaming.entities.User;
-/**
- * @author 689Cloud
- */
+import com.cloud.secure.ecommerce.common.enums.Status;
+import com.cloud.secure.ecommerce.common.enums.UserRole;
+
+import com.cloud.secure.ecommerce.entities.User;
+import org.springframework.data.domain.Page;
+
+import java.util.List;
+
 public interface UserService {
 
-    User save(User user);
+    User getByEmailUserRole(String email, UserRole userRole);
 
-    void delete(User user);
+    User getId(String id);
 
-    User getById(String id);
+    User getUserBySessionId(String sessionId);
 
-    User getByEmailAndStatusAndType(String email, AppStatus status, UserType userType);
+    User getByEmailAndStatus(String email);
+
+    User saveUser(User user);
+
+    void saveAll(List<User> user);
+
+    List<User> getAllByIdInAndStatus(List<String> ids, Status status);
+
+    Page<User> getByLastNameAndFirstNameContaining(String name, boolean isAsc, String field, int pageNumber, int pageSize);
+
+    User getByEmail(String email);
+
 }
