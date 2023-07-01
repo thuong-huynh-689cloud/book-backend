@@ -1,20 +1,20 @@
-package com.cloud.secure.streaming.repositories;
+package com.cloud.secure.ecommerce.repositories;
 
-import com.cloud.secure.streaming.entities.Session;
-import org.springframework.data.jpa.repository.JpaRepository;
+import com.cloud.secure.ecommerce.common.enums.Status;
+import com.cloud.secure.ecommerce.entities.Session;
+import com.cloud.secure.ecommerce.entities.User;
+import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
-/**
- * @author 689Cloud
- */
+
 @Repository
 @Transactional
-public interface SessionRepository extends JpaRepository<Session, String> {
+public interface SessionRepository extends PagingAndSortingRepository<Session, String> {
 
     List<Session> findAllByUserId(String userId);
 
-    void deleteByUserId(String id);
+
 }

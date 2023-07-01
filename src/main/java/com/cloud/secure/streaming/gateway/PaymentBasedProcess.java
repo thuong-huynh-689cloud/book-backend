@@ -1,8 +1,6 @@
 package com.cloud.secure.streaming.gateway;
 
-import com.cloud.secure.streaming.common.enums.UserType;
 import com.cloud.secure.streaming.entities.User;
-import com.cloud.secure.streaming.gateway.model.CustomCreditCard;
 import com.stripe.model.*;
 import org.springframework.core.env.Environment;
 
@@ -18,7 +16,7 @@ public abstract class PaymentBasedProcess {
         this.envMap = env;
     }
 
-    public abstract CustomCreditCard getCardInfo(String cardToken, User user);
+//    public abstract CustomCreditCard getCardInfo(String cardToken, User user);
 
     public abstract void deleteCard(String cardToken, String customerId, String email);
 

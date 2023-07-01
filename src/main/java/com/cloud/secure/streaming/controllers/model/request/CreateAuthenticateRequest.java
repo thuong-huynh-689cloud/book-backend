@@ -8,7 +8,6 @@ import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import lombok.*;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
 
 @Data
 @Setter
@@ -17,33 +16,19 @@ import javax.validation.constraints.Size;
 @NoArgsConstructor
 @JsonNaming(PropertyNamingStrategy.LowerCaseWithUnderscoresStrategy.class)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class CreateUserRequest {
+public class CreateAuthenticateRequest {
 
     @NotBlank(message = ParamError.FIELD_NAME)
-    private UserRole role;
-
-    @NotBlank(message = ParamError.FIELD_NAME)
-    @Size(max = 255, message = ParamError.MAX_LENGTH)
     private String email;
 
+    //mã hóa Chuỗi md5
     @NotBlank(message = ParamError.FIELD_NAME)
-    @Size(max = 255, message = ParamError.MAX_LENGTH)
-    private String fistName;
+    private String password;
 
     @NotBlank(message = ParamError.FIELD_NAME)
-    @Size(max = 255, message = ParamError.MAX_LENGTH)
-    private String lastName;
+    private boolean keepLoggedIn;
 
     @NotBlank(message = ParamError.FIELD_NAME)
-    private String newPassword;
-
-    @NotBlank(message = ParamError.FIELD_NAME)
-    private String confirmNewPassword;
-
-    @NotBlank(message = ParamError.FIELD_NAME)
-    private String address;
-
-    @NotBlank(message = ParamError.FIELD_NAME)
-    private String phoneNumber;
+    private UserRole userRole;
 
 }

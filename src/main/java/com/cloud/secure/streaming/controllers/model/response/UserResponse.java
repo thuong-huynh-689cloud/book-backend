@@ -5,17 +5,12 @@ import com.cloud.secure.streaming.common.enums.CardType;
 import com.cloud.secure.streaming.common.enums.Gender;
 import com.cloud.secure.streaming.common.enums.UserType;
 import com.cloud.secure.streaming.entities.User;
-import com.cloud.secure.streaming.entities.UserAdminFeedback;
-import com.cloud.secure.streaming.entities.UserLanguage;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import java.time.ZoneId;
 import java.util.Date;
 import java.util.List;

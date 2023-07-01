@@ -1,7 +1,5 @@
 package com.cloud.secure.streaming.gateway;
 
-import com.cloud.secure.streaming.common.enums.GatewayType;
-import com.cloud.secure.streaming.gateway.stripe.StripePaymentProcess;
 import org.springframework.core.env.Environment;
 
 /**

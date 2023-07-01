@@ -1,13 +1,12 @@
-package com.cloud.secure.streaming.config.security;
+package com.cloud.secure.ecommerce.config.security;
 
-import com.cloud.secure.streaming.common.enums.UserType;
+import com.cloud.secure.ecommerce.common.enums.UserRole;
+import com.cloud.secure.ecommerce.entities.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.cloud.secure.streaming.entities.User;
 import lombok.Getter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -21,28 +20,25 @@ public class AuthUser implements UserDetails {
     private final String username;
     private final String password;
     @Getter
-    private String name;
+    private String firstName;
+    @Getter
+    private String lastName;
     @Getter
     private String email;
+    @Getter
+    private UserRole role;
     private final boolean enabled;
-    @Getter
-    private UserType type;
-    @Getter
-    private ZoneId zoneId;
-    @Getter
-    private String avatar;
 
 
-    public AuthUser(User user, ZoneId zoneId) {
+    public AuthUser(User user) {
         this.id = user.getId();
         this.username = user.getEmail();
-        this.password = "";
-        this.name = user.getName();
         this.email = user.getEmail();
-        this.type = user.getType();
-        this.zoneId = zoneId;
+        this.password = user.getPasswordHash();
+        this.firstName = user.getFirstName();
+        this.lastName = user.getLastName();
+        this.role = user.getRole();
         this.enabled = true;
-        this.avatar = user.getAvatar();
     }
 
     @Override
@@ -76,11 +72,13 @@ public class AuthUser implements UserDetails {
     }
 
     @Override
+    @JsonIgnore
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return new ArrayList<>();
     }
 
     @Override
+    @JsonIgnore
     public boolean isEnabled() {
         return true;
     }

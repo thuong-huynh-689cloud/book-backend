@@ -1,14 +1,14 @@
 package com.cloud.secure.streaming.controllers.model.request;
 
-import com.cloud.secure.streaming.common.enums.UserRole;
 import com.cloud.secure.streaming.common.utilities.ParamError;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import lombok.*;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
+import java.util.List;
+
 
 @Data
 @Setter
@@ -17,33 +17,35 @@ import javax.validation.constraints.Size;
 @NoArgsConstructor
 @JsonNaming(PropertyNamingStrategy.LowerCaseWithUnderscoresStrategy.class)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class CreateUserRequest {
+public class CreateProductRequest {
+
 
     @NotBlank(message = ParamError.FIELD_NAME)
-    private UserRole role;
+    private String name;
+
+//    @NotBlank(message = ParamError.FIELD_NAME)
+//    private String userId;
 
     @NotBlank(message = ParamError.FIELD_NAME)
-    @Size(max = 255, message = ParamError.MAX_LENGTH)
-    private String email;
+    private Double salePrice;
+
+//    @NotBlank(message = ParamError.FIELD_NAME)
+//    private String defaultImage;
 
     @NotBlank(message = ParamError.FIELD_NAME)
-    @Size(max = 255, message = ParamError.MAX_LENGTH)
-    private String fistName;
+    @Max(value = 999999999,  message = ParamError.MAX_VALUE)
+    @Min(value = 0, message = ParamError.MIN_VALUE)
+    private Integer quantity;
 
     @NotBlank(message = ParamError.FIELD_NAME)
-    @Size(max = 255, message = ParamError.MAX_LENGTH)
-    private String lastName;
+    private Integer rank;
 
     @NotBlank(message = ParamError.FIELD_NAME)
-    private String newPassword;
+    private String sku;
+
+    private String description;
 
     @NotBlank(message = ParamError.FIELD_NAME)
-    private String confirmNewPassword;
-
-    @NotBlank(message = ParamError.FIELD_NAME)
-    private String address;
-
-    @NotBlank(message = ParamError.FIELD_NAME)
-    private String phoneNumber;
+    private List<String> categoryIds;
 
 }

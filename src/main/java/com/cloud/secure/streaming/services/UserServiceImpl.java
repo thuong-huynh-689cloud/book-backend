@@ -1,11 +1,9 @@
-package com.cloud.secure.streaming.services;
+package com.cloud.secure.ecommerce.services;
 
-import com.cloud.secure.streaming.common.enums.AppStatus;
-import com.cloud.secure.streaming.common.enums.SortDirection;
-import com.cloud.secure.streaming.common.enums.SortFieldUser;
-import com.cloud.secure.streaming.common.enums.UserType;
-import com.cloud.secure.streaming.entities.User;
-import com.cloud.secure.streaming.repositories.UserRepository;
+import com.cloud.secure.ecommerce.common.enums.Status;
+import com.cloud.secure.ecommerce.common.enums.UserRole;
+import com.cloud.secure.ecommerce.entities.User;
+import com.cloud.secure.ecommerce.repositories.UserRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -14,9 +12,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-/**
- * @author 689Cloud
- */
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -26,102 +21,72 @@ public class UserServiceImpl implements UserService {
         this.userRepository = userRepository;
     }
 
-
     @Override
-    public User save(User user) {
-        return userRepository.save(user);
+    public User getByEmailUserRole(String email, UserRole userRole) {
+        return userRepository.findByEmailAndRoleAndStatus(email, userRole, Status.ACTIVE);
     }
 
     @Override
-    public void delete(User user) {
-        userRepository.delete(user);
-    }
-
-    @Override
-    public User getById(String id) {
+    public User getId(String id) {
         return userRepository.findById(id).orElse(null);
     }
 
     @Override
-    public User getByEmailAndStatusAndType(String email, AppStatus status, UserType userType) {
-        return userRepository.findByEmailAndStatusAndType(email, status, userType);
+    public User getUserBySessionId(String sessionId) {
+        return userRepository.getUserBySessionId(sessionId);
     }
 
     @Override
-    public User getByIdAndType(String id, UserType userType) {
-        return userRepository.findOneByIdAndTypeAndStatus(id, userType, AppStatus.ACTIVE);
+    public User getByEmailAndStatus(String email) {
+        return userRepository.findByEmailAndStatus(email,Status.ACTIVE);
     }
 
     @Override
-    public User getByIdAndStatus(String id, AppStatus status) {
-        return userRepository.findByIdAndStatus(id, AppStatus.ACTIVE);
+    public User saveUser(User user) {
+        return userRepository.save(user);
     }
 
     @Override
-    public Page<User> getPageUser(String searchKey,
-                                  SortFieldUser sortFieldUser,
-                                  SortDirection sortDirection, List<UserType> type,
-                                  List<AppStatus> statuses,
-                                  int pageNumber,
-                                  int pageSize) {
+    public void saveAll(List<User> user) {
+        userRepository.saveAll(user);
+    }
 
-        Sort.Direction direction = Sort.Direction.ASC;
-        if (sortDirection.equals(SortDirection.DESC)) {
-            direction = Sort.Direction.DESC;
+    @Override
+    public List<User> getAllByIdInAndStatus(List<String> ids, Status status) {
+        return userRepository.findAllByIdInAndStatus(ids, status);
+    }
+
+    @Override
+    public Page<User> getByLastNameAndFirstNameContaining(String name, boolean isAsc, String field, int pageNumber, int pageSize) {
+        String properties = "";
+        switch (field){
+            case "firstName":
+                properties = "firstName";
+                break;
+            case "lastName":
+                properties = "lastName";
+                break;
+            case "status":
+                properties = "status";
+                break;
+            default:
+                properties = "createdDate";
+                break;
         }
-        Sort sort = Sort.by(direction, sortFieldUser.toString());
+        Sort.Direction direction = isAsc ? Sort.Direction.ASC : Sort.Direction.DESC;
+
+        Sort sort = Sort.by(direction, properties);
+
         Pageable pageable = PageRequest.of(pageNumber - 1, pageSize, sort);
 
-        return userRepository.findUsersPage("%" + searchKey + "%", statuses, type, pageable);
-    }
+        return userRepository.getByLastNameAndFirstNameContaining(Status.ACTIVE, "%" + name + "%", pageable);
 
-    @Override
-    public void updateUserByIdInToInactive(List<String> ids) {
-        userRepository.updateUserByIdInToInactive(AppStatus.INACTIVE, ids);
     }
 
     @Override
     public User getByEmail(String email) {
-        return userRepository.findByEmailAndStatus(email,AppStatus.ACTIVE);
+        return userRepository.findByEmail(email);
     }
 
-    @Override
-    public List<User> getAllByIdIn(List<String> userIds) {
-        return userRepository.findAllByIdIn(userIds);
-    }
 
-    @Override
-    public User getByGoogleIdAndStatus(String googleId, AppStatus status) {
-        return userRepository.findByGoogleIdAndStatus(googleId, status);
-    }
-
-    @Override
-    public User getByFacebookId(String facebookId) {
-        return userRepository.findByFacebookIdAndStatus(facebookId,AppStatus.INACTIVE);
-    }
-
-    @Override
-    public List<User> getAllByTypeInOrderByCreatedDateDesc(List<UserType> userTypes) {
-        return userRepository.findAllByTypeInOrderByCreatedDateDesc(userTypes);
-    }
-
-    @Override
-    public List<User> getAllByCourseIdIn(List<String> courseIds) {
-        return userRepository.findAllByCourseIdIn(courseIds);
-    }
-
-    @Override
-    public List<User> getAllByTypeInAndStatusOrderByCreatedDateDesc(List<UserType> userTypes, AppStatus appStatus){
-        return userRepository.findAllByTypeInAndStatusOrderByCreatedDateDesc(userTypes,appStatus);
-    }
-
-    @Override
-    public List<User> getAllByIdInAndStatus (List<String> ids, AppStatus status){
-        return userRepository.findAllByIdInAndStatus(ids, AppStatus.ACTIVE);
-    }
-
-    @Override
-    public User getUserByCourseId(String courseId) {
-        return userRepository.findUserByCourseId(courseId);
-    }
 }
