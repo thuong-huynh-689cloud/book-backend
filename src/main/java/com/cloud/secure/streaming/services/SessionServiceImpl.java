@@ -1,6 +1,7 @@
 package com.cloud.secure.streaming.services;
 
 import com.cloud.secure.streaming.entities.Session;
+import com.cloud.secure.streaming.repositories.SessionRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

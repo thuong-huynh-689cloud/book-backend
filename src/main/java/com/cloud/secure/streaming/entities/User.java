@@ -105,26 +105,26 @@ public class User extends BaseEntity implements Serializable {
     @Column(name = "facebook_id", length = 64, unique = true)
     private String facebookId;
 
-    @Column(name = "stripe_customer_id", length = 64, unique = true)
-    private String stripeCustomerId;
-
-    @Column(name = "card_id")
-    private String cardId;
-
-    @Column(name = "card_number")
-    private String cardNumber; // stripe
-
-    @Column(name = "card_holder")
-    private String cardHolder; // stripe
-
-    @Column(name = "card_exp_date")
-    private String cardExpDate; // stripe
-
-    @Column(name = "card_token")
-    private String cardToken; // stripe
-
-    @Column(name = "card_type")
-    @Enumerated(EnumType.STRING)
-    private CardType cardType; // stripe
+//    @Column(name = "stripe_customer_id", length = 64, unique = true)
+//    private String stripeCustomerId;
+//
+//    @Column(name = "card_id")
+//    private String cardId;
+//
+//    @Column(name = "card_number")
+//    private String cardNumber; // stripe
+//
+//    @Column(name = "card_holder")
+//    private String cardHolder; // stripe
+//
+//    @Column(name = "card_exp_date")
+//    private String cardExpDate; // stripe
+//
+//    @Column(name = "card_token")
+//    private String cardToken; // stripe
+//
+//    @Column(name = "card_type")
+//    @Enumerated(EnumType.STRING)
+//    private CardType cardType; // stripe
 
 }

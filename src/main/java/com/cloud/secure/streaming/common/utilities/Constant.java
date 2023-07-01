@@ -32,7 +32,7 @@ public interface Constant {
     String[] AVATAR_EXTENSION = {"png", "pjp", "jpg", "jpeg", "jfif", "pjpeg", "ico"};
     String[] COURSE_IMAGE_EXTENSION = {"png", "jpg", "jpeg", "gif"};
     String[] CERTIFICATE_EXTENSION = {"docx", "pdf","doc"};
-    String[] LECTURE_EXTENSION = {"mp4", "mov", "wmv", "flv", "avi", "avchd", "webm", "mkv","docx","docx", "pdf"};
+    String[] LECTURE_EXTENSION = {"mp4", "mov", "wmv", "flv", "avi", "avchd", "webm", "mkv","doc","docx", "pdf"};
 
 }
 
