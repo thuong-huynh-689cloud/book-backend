@@ -33,11 +33,11 @@ public class UserHelper {
         user.setCreatedDate(DateUtil.convertToUTC(new Date()));
         //add salt to data
         String newSalt = AppUtil.generateSalt();
-        user.setSalt(newSalt);
+        user.setPasswordSalt(newSalt);
         //add password
         if (createUserRequest.getNewPassword().equals(createUserRequest.getConfirmNewPassword())) {
             // encode password
-            user.setPasswordHash(passwordEncoder.encode(createUserRequest.getNewPassword().trim().concat(user.getSalt())));
+            user.setPasswordHash(passwordEncoder.encode(createUserRequest.getNewPassword().trim().concat(user.getPasswordSalt())));
         } else {
             throw new ApplicationException(RestAPIStatus.FAIL, "password incorrect, please try again");
         }
@@ -75,17 +75,17 @@ public class UserHelper {
         return user;
     }
 
-    public User createSignUp(CreateSignUpRequest createSignUpRequest, PasswordEncoder passwordEncoder) {
-        User user = new User();
-        user.setId(UniqueID.getUUID());
-        user.setEmail(createSignUpRequest.getEmail());
-        String newSalt = AppUtil.generateSalt();
-        user.setSalt(newSalt);
-        user.setPasswordHash(passwordEncoder.encode(createSignUpRequest.getPasswordHash().trim().concat(user.getSalt())));
-        user.setRole(UserRole.CUSTOMER);
-        user.setStatus(Status.PENDING);
-
-        return user;
-    }
+//    public User createSignUp(CreateSignUpRequest createSignUpRequest, PasswordEncoder passwordEncoder) {
+//        User user = new User();
+//        user.setId(UniqueID.getUUID());
+//        user.setEmail(createSignUpRequest.getEmail());
+//        String newSalt = AppUtil.generateSalt();
+//        user.setSalt(newSalt);
+//        user.setPasswordHash(passwordEncoder.encode(createSignUpRequest.getPasswordHash().trim().concat(user.getSalt())));
+//        user.setRole(UserRole.CUSTOMER);
+//        user.setStatus(Status.PENDING);
+//
+//        return user;
+//    }
 }
 

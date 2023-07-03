@@ -22,7 +22,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-import java.time.ZoneId;
 
 /**
  * @author 689Cloud
@@ -56,7 +55,7 @@ public class AuthenticateController extends AbstractBaseController {
             @RequestBody @Valid AuthenticateRequest authenticateRequest
     ) {
         // get user by email & Type
-        User user = userService.getByEmailAndStatusAndType(authenticateRequest.getAuthId().trim(), Status.ACTIVE, authenticateRequest.getUserRole());
+        User user = userService.getByEmailAndStatus(authenticateRequest.getAuthId().trim());
         Validator.notNull(user, RestAPIStatus.INVALID_AUTHENTICATE_CREDENTIAL, "INVALID_AUTHENTICATE_CREDENTIAL");
 
         // validate password
@@ -64,11 +63,8 @@ public class AuthenticateController extends AbstractBaseController {
                 user.getPasswordHash())) {
             throw new ApplicationException(RestAPIStatus.INVALID_AUTHENTICATE_CREDENTIAL, "");
         }
-        // get zoneId
-        ZoneId zoneId = DateUtil.getZoneId(authenticateRequest.getZoneId());
-
         // create session
-        Session session = sessionHelper.createSession(user, authenticateRequest.isKeepLogin(), zoneId);
+        Session session = sessionHelper.createSession(user, authenticateRequest.isKeepLogin());
         sessionService.save(session);
 
         return responseUtil.successResponse(new AuthenticateResponse(session));

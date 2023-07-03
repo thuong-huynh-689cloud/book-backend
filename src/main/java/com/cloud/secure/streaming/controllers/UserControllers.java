@@ -1,7 +1,10 @@
 package com.cloud.secure.streaming.controllers;
 
+import com.cloud.secure.streaming.common.enums.APIStatusMessage;
+import com.cloud.secure.streaming.common.enums.Status;
 import com.cloud.secure.streaming.common.enums.UserRole;
 import com.cloud.secure.streaming.common.exceptions.ApplicationException;
+import com.cloud.secure.streaming.common.utilities.Constant;
 import com.cloud.secure.streaming.common.utilities.RestAPIResponse;
 import com.cloud.secure.streaming.common.utilities.RestAPIStatus;
 import com.cloud.secure.streaming.common.utilities.Validator;
@@ -57,10 +60,10 @@ public class UserControllers extends AbstractBaseController {
     public ResponseEntity<RestAPIResponse> createUser(
             @RequestBody CreateUserRequest createUserRequest
     ) {
-        // validate phone number
-        Validator.validPhoneNumber(createUserRequest.getPhoneNumber().trim());
+        User user = userService.getByEmailAndStatus(createUserRequest.getEmail());
+        Validator.mustNull(user, RestAPIStatus.EXISTED, APIStatusMessage.EMAIL_EXISTED);
         // create user
-        User user = userHelper.createUser(createUserRequest, passwordEncoder);
+        user = userHelper.createUser(createUserRequest, passwordEncoder);
         // save user
         userService.saveUser(user);
         return responseUtil.successResponse(user);

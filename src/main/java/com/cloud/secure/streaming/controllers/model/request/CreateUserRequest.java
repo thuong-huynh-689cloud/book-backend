@@ -43,7 +43,6 @@ public class CreateUserRequest {
     @NotBlank(message = ParamError.FIELD_NAME)
     private String address;
 
-    @NotBlank(message = ParamError.FIELD_NAME)
     private String phoneNumber;
 
 }

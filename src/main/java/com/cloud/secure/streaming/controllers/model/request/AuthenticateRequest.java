@@ -27,7 +27,4 @@ public class AuthenticateRequest {
     private boolean keepLogin;
 
     private UserRole userRole;
-
-    @NotBlank(message = ParamError.FIELD_NAME)
-    private String zoneId;
 }

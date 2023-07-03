@@ -64,7 +64,7 @@ public class SecurityConfiguration {
                 // allow CORS option calls
                 .antMatchers(HttpMethod.OPTIONS, ApiPath.BASE_API_PATH + "/**").permitAll()
                 .antMatchers(ApiPath.BASE_API_PATH + "/**/public/**").permitAll()
-                .antMatchers(HttpMethod.POST, ApiPath.USER_API + "/sign-up/**").permitAll()
+                .antMatchers(HttpMethod.POST, ApiPath.USER_API + "/**").permitAll()
                 .antMatchers(HttpMethod.POST, ApiPath.AUTHENTICATE_API + "/**").permitAll()
                 .antMatchers(HttpMethod.POST, ApiPath.AUTHENTICATE_API + "/password" + "/**").permitAll()
                 .antMatchers(HttpMethod.PUT, ApiPath.AUTHENTICATE_API + "/password/{code}" + "/**").permitAll()

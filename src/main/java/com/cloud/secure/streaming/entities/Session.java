@@ -28,8 +28,6 @@ public class Session extends BaseEntity implements Serializable {
     @Column(nullable = false, length = 32)
     private String userId;
 
-    private String zoneId;
-
     @Column(nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = Constant.API_FORMAT_DATE_TIME)

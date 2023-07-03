@@ -52,7 +52,7 @@ public class SessionHelper {
      * @param user
      * @return
      */
-    public Session createSession(User user, boolean keepLogin, ZoneId zoneId) {
+    public Session createSession(User user, boolean keepLogin) {
         Session session = new Session();
         // Generate ID
         session.setId(UniqueID.getUUID());
@@ -66,9 +66,7 @@ public class SessionHelper {
             // set time keep login 7 days
             session.setExpiryDate(DateUtil.convertToUTC(DateUtil.addDate(new Date(), TimeZone.getDefault(), 7)));
         }
-        if (zoneId != null) {
-            session.setZoneId(zoneId.getId());
-        }
+
         return session;
     }
 }

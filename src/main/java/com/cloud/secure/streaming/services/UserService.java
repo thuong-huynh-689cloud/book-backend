@@ -27,6 +27,4 @@ public interface UserService {
 
     User getByEmail(String email);
 
-    User getByEmailAndStatusAndType(String email, Status status, UserRole userRole);
-
 }

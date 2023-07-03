@@ -44,9 +44,6 @@ public class User extends BaseEntity implements Serializable {
     @Enumerated(EnumType.STRING)
     private Status status;
 
-    @Column(name = "salt", length = 45)
-    private String salt;
-
     @Column(name = "address", length = 255)
     private String address;
 
