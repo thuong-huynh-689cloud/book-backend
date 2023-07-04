@@ -26,5 +26,5 @@ public class AuthenticateRequest {
 
     private boolean keepLogin;
 
-    private UserRole userRole;
+    private UserRole userRole;  
 }
