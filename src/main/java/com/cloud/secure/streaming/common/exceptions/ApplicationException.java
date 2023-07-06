@@ -37,8 +37,8 @@ public class ApplicationException extends RuntimeException {
 //        this.apiStatus = apiStatus;
 //    }
 
-    public ApplicationException(RestAPIStatus apiStatus, APIStatusMessage message) {
-        super(message.toString());
+    public ApplicationException(RestAPIStatus apiStatus, String message) {
+        super(message);
         this.apiStatus = apiStatus;
     }
 

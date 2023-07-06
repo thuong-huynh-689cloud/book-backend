@@ -18,12 +18,11 @@ public class UpdateUserRequest {
 
     @Max(value = 64)
     private String firstName;
-
+    
+    @Max(value = 64)
     private String lastName;
-
 
     private String address;
 
     private String phoneNumber;
-
 }
