@@ -45,6 +45,16 @@ public class SpringDocOpenApiConfig {
     }
 
     @Bean
+    public GroupedOpenApi categoryApi() {
+        return GroupedOpenApi.builder().group("Category").pathsToMatch(ApiPath.CATEGORY_API + "/**").build();
+    }
+
+    @Bean
+    public GroupedOpenApi productApi() {
+        return GroupedOpenApi.builder().group("Product").pathsToMatch(ApiPath.PRODUCT_API + "/**").build();
+    }
+
+    @Bean
     public OpenAPI applicationOpenAPI() {
         final String securitySchemeName = Constant.HEADER_TOKEN;
         final String apiTitle = String.format("%s API", StringUtils.capitalize(moduleName));

@@ -64,7 +64,7 @@ public class UserControllers extends AbstractBaseController {
             @RequestBody CreateUserRequest createUserRequest
     ) {
         User user = userService.getByEmailAndStatus(createUserRequest.getEmail());
-        Validator.mustNull(user, RestAPIStatus.EXISTED, APIStatusMessage.EMAIL_EXISTED);
+        Validator.mustNull(user, RestAPIStatus.EXISTED, "EMAIL_EXISTED");
         // create user
         user = userHelper.createUser(createUserRequest, passwordEncoder);
         // save user

@@ -5,6 +5,7 @@ package com.cloud.secure.streaming.common.utilities;
  */
 public interface Constant {
     String HEADER_TOKEN = "Auth-Token";
+    String SORT_BY_CI = "categoryId";
 
     //  Date
     String API_FORMAT_DATE_TIME = "MM/dd/yyyy hh:mm:ss";

@@ -21,7 +21,7 @@ public class Validator {
      * @throws ApplicationException if {@code obj} is NOT null
      */
 
-    public static void mustNull(Object obj, RestAPIStatus RestAPIStatus,APIStatusMessage apiStatusMessage) {
+    public static void mustNull(Object obj, RestAPIStatus RestAPIStatus,String apiStatusMessage) {
 
         if (obj != null) {
             throw new ApplicationException(RestAPIStatus, apiStatusMessage);

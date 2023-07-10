@@ -1,0 +1,76 @@
+01:39:37.207 [ WARN] 52773 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2h27s939ms).
+03:40:34.691 [ WARN] 52773 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2h27s279ms).
+05:41:32.205 [ WARN] 52773 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2h27s488ms).
+05:43:12.491 [ WARN] 52773 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m39s984ms).
+05:51:08.854 [ WARN] 52773 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=6m56s220ms).
+08:14:24.065 [ WARN] 52773 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2h22m45s179ms).
+08:54:52.663 [ INFO] 52773 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+08:54:52.682 [ INFO] 52773 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+08:54:52.687 [ INFO] 52773 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+08:54:59.788 [ INFO] 54916 --- [restartedMain] com.cloud.secure.streaming.Application   : Starting Application using Java 20.0.1 on MacBook-Pro-cua-Thuong.local with PID 54916 (/Users/mac/Documents/book-backend/target/classes started by mac in /Users/mac/Documents/book-backend)
+08:54:59.791 [ INFO] 54916 --- [restartedMain] com.cloud.secure.streaming.Application   : The following 1 profile is active: "local"
+08:54:59.828 [ INFO] 54916 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+08:54:59.828 [ INFO] 54916 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+08:55:00.487 [ INFO] 54916 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+08:55:00.488 [ INFO] 54916 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+08:55:00.530 [ INFO] 54916 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.cloud.secure.streaming.repositories.SessionRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+08:55:00.531 [ INFO] 54916 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.cloud.secure.streaming.repositories.UserRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+08:55:00.532 [ INFO] 54916 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 39 ms. Found 0 JDBC repository interfaces.
+08:55:00.539 [ INFO] 54916 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+08:55:00.540 [ INFO] 54916 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+08:55:00.583 [ INFO] 54916 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 37 ms. Found 2 JPA repository interfaces.
+08:55:01.371 [ INFO] 54916 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+08:55:01.387 [ INFO] 54916 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+08:55:01.387 [ INFO] 54916 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.71]
+08:55:01.454 [ INFO] 54916 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+08:55:01.454 [ INFO] 54916 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1625 ms
+08:55:01.626 [ INFO] 54916 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+08:55:01.692 [ INFO] 54916 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.14.Final
+08:55:01.840 [ INFO] 54916 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+08:55:01.925 [ INFO] 54916 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+08:55:02.067 [ INFO] 54916 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+08:55:02.100 [ INFO] 54916 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL55Dialect
+08:55:02.137 [ INFO] 54916 --- [restartedMain] Hibernate Types                          : This framework is proudly powered by:
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+ _    _                           _     _
+| |  | |                         (_)   | |
+| |__| |_   _ _ __   ___ _ __ ___ _ ___| |_ ___ _ __   ___ ___
+|  __  | | | | '_ \ / _ \ '__/ __| / __| __/ _ \ '_ \ / __/ _ \
+| |  | | |_| | |_) |  __/ |  \__ \ \__ \ ||  __/ | | | (_|  __/
+|_|  |_|\__, | .__/ \___|_|  |___/_|___/\__\___|_| |_|\___\___|
+         __/ | |
+        |___/|_|
+
+At Hypersistence, we only build amazing tools, like Hibernate Types, Flexy Pool, or Hypersistence Optimizer.
+
+What if there were a tool that could automatically detect JPA and Hibernate performance issues?
+
+Hypersistence Optimizer is that tool! For more details, go to: 
+
+https://vladmihalcea.com/hypersistence-optimizer/
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+08:55:02.705 [ INFO] 54916 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+08:55:02.713 [ INFO] 54916 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+08:55:03.272 [ WARN] 54916 --- [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 2c14c650-7c67-4749-bfb3-42171d5c119c
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+08:55:03.477 [ WARN] 54916 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+08:55:03.511 [ INFO] 54916 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+08:55:03.885 [ INFO] 54916 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5a87b605, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@15e498, org.springframework.security.web.context.SecurityContextPersistenceFilter@51516faf, org.springframework.security.web.header.HeaderWriterFilter@141a87fe, org.springframework.web.filter.CorsFilter@40f138db, org.springframework.security.web.authentication.logout.LogoutFilter@524085ae, com.cloud.secure.streaming.config.security.AuthTokenFilter@19e43d37, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5bd21b6b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@721e9556, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7db6b97b, org.springframework.security.web.session.SessionManagementFilter@12bc95bf, org.springframework.security.web.access.ExceptionTranslationFilter@6aed6c5a, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@43c215bd]
+08:55:04.370 [ WARN] 54916 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+08:55:04.407 [ INFO] 54916 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+08:55:04.422 [ INFO] 54916 --- [restartedMain] com.cloud.secure.streaming.Application   : Started Application in 4.939 seconds (JVM running for 6.068)
+10:22:05.760 [ INFO] 54916 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+10:22:05.762 [ INFO] 54916 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+10:22:05.763 [ INFO] 54916 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+10:22:06.388 [ INFO] 54916 --- [http-nio-8081-exec-8] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 245 ms
+17:10:36.230 [ WARN] 54916 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Retrograde clock change detected (housekeeper delta=29s834ms), soft-evicting connections from pool.
+17:54:45.419 [ WARN] 54916 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=41m9s51ms).
+17:56:39.322 [ WARN] 54916 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m53s904ms).
+21:48:28.129 [ WARN] 54916 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3h51m18s799ms).
+22:17:02.529 [ WARN] 54916 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=28m4s333ms).
