@@ -26,12 +26,8 @@ public class CreateUserRequest {
     @Size(max = 255, message = ParamError.MAX_LENGTH)
     private String email;
 
-    @NotBlank(message = ParamError.FIELD_NAME)
-    @Size(max = 255, message = ParamError.MAX_LENGTH)
     private String fistName;
 
-    @NotBlank(message = ParamError.FIELD_NAME)
-    @Size(max = 255, message = ParamError.MAX_LENGTH)
     private String lastName;
 
     @NotBlank(message = ParamError.FIELD_NAME)
@@ -40,9 +36,7 @@ public class CreateUserRequest {
     @NotBlank(message = ParamError.FIELD_NAME)
     private String confirmNewPassword;
 
-    @NotBlank(message = ParamError.FIELD_NAME)
     private String address;
 
     private String phoneNumber;
-
 }

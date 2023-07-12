@@ -65,7 +65,7 @@ public class ProductController extends AbstractBaseController {
             @Parameter(hidden = true) @AuthSession AuthUser authUser,
             @RequestBody @Valid CreateProductRequest createProductRequest
     ) {
-        Product product = null
+        Product product = null;
 
         if (authUser.getRole().equals(UserRole.ADMIN)) {
 

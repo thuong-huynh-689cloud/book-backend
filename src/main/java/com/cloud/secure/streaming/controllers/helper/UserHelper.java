@@ -50,6 +50,7 @@ public class UserHelper {
     }
 
     public User updateUser(User user, UpdateUserRequest updateUserRequest, PasswordEncoder passwordEncoder) {
+        
         // check fist name
         if (updateUserRequest.getFirstName() != null && !updateUserRequest.getFirstName().trim().isEmpty() &&
                 !updateUserRequest.getFirstName().trim().equals(user.getFirstName())) {
@@ -68,7 +69,6 @@ public class UserHelper {
         // validate phone number
         if (updateUserRequest.getPhoneNumber() != null && !updateUserRequest.getPhoneNumber().isEmpty() &&
                 !updateUserRequest.getPhoneNumber().equals(user.getPhoneNumber())) {
-            Validator.validPhoneNumber(updateUserRequest.getPhoneNumber().trim());
             user.setPhoneNumber(updateUserRequest.getPhoneNumber());
         }
 
