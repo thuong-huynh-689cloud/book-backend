@@ -26,7 +26,7 @@ public class CreateUserRequest {
     @Size(max = 255, message = ParamError.MAX_LENGTH)
     private String email;
 
-    private String fistName;
+    private String firstName;
 
     private String lastName;
 

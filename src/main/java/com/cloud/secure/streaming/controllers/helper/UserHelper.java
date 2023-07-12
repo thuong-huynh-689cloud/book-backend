@@ -24,7 +24,7 @@ public class UserHelper {
         //add email to data
         user.setEmail(createUserRequest.getEmail());
         //add fist name to data
-        user.setFirstName(createUserRequest.getFistName());
+        user.setFirstName(createUserRequest.getFirstName());
         //add last name to data
         user.setLastName(createUserRequest.getLastName());
         //add status to data

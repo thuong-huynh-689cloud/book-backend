@@ -766,3 +766,207 @@ This generated password is for development use only. Your security configuration
 08:42:21.138 [ INFO] 21431 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 08:42:21.138 [ INFO] 21431 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 08:42:21.140 [ INFO] 21431 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+12:18:03.507 [ WARN] 21431 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=7m14s236ms).
+13:19:33.664 [ WARN] 21431 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h1m30s157ms).
+13:37:55.723 [ WARN] 21431 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=17m52s49ms).
+14:11:43.282 [ INFO] 21431 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+14:11:43.289 [ INFO] 21431 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+14:11:43.291 [ INFO] 21431 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+14:11:47.275 [ INFO] 23783 --- [restartedMain] com.cloud.secure.streaming.Application   : Starting Application using Java 20.0.1 on MBP-cua-Thuong with PID 23783 (/Users/mac/Documents/book-backend/target/classes started by mac in /Users/mac/Documents/book-backend)
+14:11:47.277 [ INFO] 23783 --- [restartedMain] com.cloud.secure.streaming.Application   : The following 1 profile is active: "local"
+14:11:47.319 [ INFO] 23783 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+14:11:47.319 [ INFO] 23783 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+14:11:47.938 [ INFO] 23783 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+14:11:47.939 [ INFO] 23783 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+14:11:47.977 [ INFO] 23783 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.cloud.secure.streaming.repositories.CategoryRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+14:11:47.978 [ INFO] 23783 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.cloud.secure.streaming.repositories.ProductCategoryRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+14:11:47.979 [ INFO] 23783 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.cloud.secure.streaming.repositories.ProductImagesRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+14:11:47.980 [ INFO] 23783 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.cloud.secure.streaming.repositories.ProductRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+14:11:47.981 [ INFO] 23783 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.cloud.secure.streaming.repositories.SessionRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+14:11:47.982 [ INFO] 23783 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.cloud.secure.streaming.repositories.UserRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+14:11:47.982 [ INFO] 23783 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 40 ms. Found 0 JDBC repository interfaces.
+14:11:47.988 [ INFO] 23783 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+14:11:47.988 [ INFO] 23783 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+14:11:48.028 [ INFO] 23783 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 35 ms. Found 6 JPA repository interfaces.
+14:11:48.703 [ INFO] 23783 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+14:11:48.711 [ INFO] 23783 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+14:11:48.711 [ INFO] 23783 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.71]
+14:11:48.768 [ INFO] 23783 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+14:11:48.769 [ INFO] 23783 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1450 ms
+14:11:48.919 [ INFO] 23783 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+14:11:48.966 [ INFO] 23783 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.14.Final
+14:11:49.099 [ INFO] 23783 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+14:11:49.187 [ INFO] 23783 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+14:11:49.313 [ INFO] 23783 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+14:11:49.339 [ INFO] 23783 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL55Dialect
+14:11:49.369 [ INFO] 23783 --- [restartedMain] Hibernate Types                          : This framework is proudly powered by:
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+ _    _                           _     _
+| |  | |                         (_)   | |
+| |__| |_   _ _ __   ___ _ __ ___ _ ___| |_ ___ _ __   ___ ___
+|  __  | | | | '_ \ / _ \ '__/ __| / __| __/ _ \ '_ \ / __/ _ \
+| |  | | |_| | |_) |  __/ |  \__ \ \__ \ ||  __/ | | | (_|  __/
+|_|  |_|\__, | .__/ \___|_|  |___/_|___/\__\___|_| |_|\___\___|
+         __/ | |
+        |___/|_|
+
+At Hypersistence, we only build amazing tools, like Hibernate Types, Flexy Pool, or Hypersistence Optimizer.
+
+What if there were a tool that could automatically detect JPA and Hibernate performance issues?
+
+Hypersistence Optimizer is that tool! For more details, go to: 
+
+https://vladmihalcea.com/hypersistence-optimizer/
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+14:11:50.018 [ INFO] 23783 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+14:11:50.024 [ INFO] 23783 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+14:11:50.665 [ WARN] 23783 --- [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 9c44299b-81af-467f-9c34-a7e207b03311
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+14:11:50.852 [ WARN] 23783 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+14:11:50.887 [ INFO] 23783 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+14:11:51.234 [ INFO] 23783 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@569e27ab, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@66b97295, org.springframework.security.web.context.SecurityContextPersistenceFilter@e919d4e, org.springframework.security.web.header.HeaderWriterFilter@2c4e0a0d, org.springframework.web.filter.CorsFilter@6e507001, org.springframework.security.web.authentication.logout.LogoutFilter@7db418cc, com.cloud.secure.streaming.config.security.AuthTokenFilter@1783e724, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@75e1c21d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@35a73a68, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7be8a13e, org.springframework.security.web.session.SessionManagementFilter@b4ed371, org.springframework.security.web.access.ExceptionTranslationFilter@3d89065d, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5e939eb]
+14:11:51.688 [ INFO] 23783 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+14:11:51.716 [ INFO] 23783 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+14:11:51.727 [ INFO] 23783 --- [restartedMain] com.cloud.secure.streaming.Application   : Started Application in 4.722 seconds (JVM running for 5.51)
+14:13:18.217 [ INFO] 23783 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+14:13:18.221 [ INFO] 23783 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+14:13:18.227 [ INFO] 23783 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+14:13:20.712 [ INFO] 23801 --- [restartedMain] com.cloud.secure.streaming.Application   : Starting Application using Java 20.0.1 on MBP-cua-Thuong with PID 23801 (/Users/mac/Documents/book-backend/target/classes started by mac in /Users/mac/Documents/book-backend)
+14:13:20.715 [ INFO] 23801 --- [restartedMain] com.cloud.secure.streaming.Application   : The following 1 profile is active: "local"
+14:13:20.764 [ INFO] 23801 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+14:13:20.764 [ INFO] 23801 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+14:13:21.447 [ INFO] 23801 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+14:13:21.448 [ INFO] 23801 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+14:13:21.483 [ INFO] 23801 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.cloud.secure.streaming.repositories.CategoryRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+14:13:21.484 [ INFO] 23801 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.cloud.secure.streaming.repositories.ProductCategoryRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+14:13:21.485 [ INFO] 23801 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.cloud.secure.streaming.repositories.ProductImagesRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+14:13:21.486 [ INFO] 23801 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.cloud.secure.streaming.repositories.ProductRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+14:13:21.487 [ INFO] 23801 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.cloud.secure.streaming.repositories.SessionRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+14:13:21.488 [ INFO] 23801 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.cloud.secure.streaming.repositories.UserRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+14:13:21.488 [ INFO] 23801 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 36 ms. Found 0 JDBC repository interfaces.
+14:13:21.494 [ INFO] 23801 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+14:13:21.495 [ INFO] 23801 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+14:13:21.533 [ INFO] 23801 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 34 ms. Found 6 JPA repository interfaces.
+14:13:22.229 [ INFO] 23801 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+14:13:22.249 [ INFO] 23801 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+14:13:22.268 [ INFO] 23801 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.71]
+14:13:22.329 [ INFO] 23801 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+14:13:22.329 [ INFO] 23801 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1565 ms
+14:13:22.469 [ INFO] 23801 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+14:13:22.517 [ INFO] 23801 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.14.Final
+14:13:22.647 [ INFO] 23801 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+14:13:22.731 [ INFO] 23801 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+14:13:22.861 [ INFO] 23801 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+14:13:22.887 [ INFO] 23801 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL55Dialect
+14:13:22.915 [ INFO] 23801 --- [restartedMain] Hibernate Types                          : This framework is proudly powered by:
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+ _    _                           _     _
+| |  | |                         (_)   | |
+| |__| |_   _ _ __   ___ _ __ ___ _ ___| |_ ___ _ __   ___ ___
+|  __  | | | | '_ \ / _ \ '__/ __| / __| __/ _ \ '_ \ / __/ _ \
+| |  | | |_| | |_) |  __/ |  \__ \ \__ \ ||  __/ | | | (_|  __/
+|_|  |_|\__, | .__/ \___|_|  |___/_|___/\__\___|_| |_|\___\___|
+         __/ | |
+        |___/|_|
+
+At Hypersistence, we only build amazing tools, like Hibernate Types, Flexy Pool, or Hypersistence Optimizer.
+
+What if there were a tool that could automatically detect JPA and Hibernate performance issues?
+
+Hypersistence Optimizer is that tool! For more details, go to: 
+
+https://vladmihalcea.com/hypersistence-optimizer/
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+14:13:23.577 [ INFO] 23801 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+14:13:23.583 [ INFO] 23801 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+14:13:24.247 [ WARN] 23801 --- [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: b2c19126-eacd-489c-86b8-105de46617b6
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+14:13:24.467 [ WARN] 23801 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+14:13:24.522 [ INFO] 23801 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+14:13:25.089 [ INFO] 23801 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7be8a13e, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5c6c7297, org.springframework.security.web.context.SecurityContextPersistenceFilter@71314a5f, org.springframework.security.web.header.HeaderWriterFilter@1d67b30e, org.springframework.web.filter.CorsFilter@71ec8e55, org.springframework.security.web.authentication.logout.LogoutFilter@4e154f52, com.cloud.secure.streaming.config.security.AuthTokenFilter@75616c28, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@505f03d9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2f23e802, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1c513811, org.springframework.security.web.session.SessionManagementFilter@51467383, org.springframework.security.web.access.ExceptionTranslationFilter@1442f81a, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4e273db6]
+14:13:25.592 [ INFO] 23801 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+14:13:25.628 [ INFO] 23801 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+14:13:25.642 [ INFO] 23801 --- [restartedMain] com.cloud.secure.streaming.Application   : Started Application in 5.188 seconds (JVM running for 5.946)
+14:13:45.798 [ INFO] 23801 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+14:13:45.799 [ INFO] 23801 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+14:13:45.802 [ INFO] 23801 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+14:13:46.462 [ INFO] 23801 --- [http-nio-8081-exec-8] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 248 ms
+14:13:49.308 [ INFO] 23801 --- [http-nio-8081-exec-9] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 90 ms
+14:13:55.332 [ WARN] 23801 --- [http-nio-8081-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.cloud.secure.streaming.common.exceptions.ApplicationException: Unauthorized or Access Token is expired]
+14:23:31.447 [ INFO] 23801 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+14:23:31.450 [ INFO] 23801 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+14:23:31.454 [ INFO] 23801 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+14:23:35.305 [ INFO] 23873 --- [restartedMain] com.cloud.secure.streaming.Application   : Starting Application using Java 20.0.1 on MBP-cua-Thuong with PID 23873 (/Users/mac/Documents/book-backend/target/classes started by mac in /Users/mac/Documents/book-backend)
+14:23:35.308 [ INFO] 23873 --- [restartedMain] com.cloud.secure.streaming.Application   : The following 1 profile is active: "local"
+14:23:35.348 [ INFO] 23873 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+14:23:35.349 [ INFO] 23873 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+14:23:35.978 [ INFO] 23873 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+14:23:35.979 [ INFO] 23873 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+14:23:36.014 [ INFO] 23873 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.cloud.secure.streaming.repositories.CategoryRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+14:23:36.015 [ INFO] 23873 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.cloud.secure.streaming.repositories.ProductCategoryRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+14:23:36.016 [ INFO] 23873 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.cloud.secure.streaming.repositories.ProductImagesRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+14:23:36.017 [ INFO] 23873 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.cloud.secure.streaming.repositories.ProductRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+14:23:36.018 [ INFO] 23873 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.cloud.secure.streaming.repositories.SessionRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+14:23:36.019 [ INFO] 23873 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.cloud.secure.streaming.repositories.UserRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+14:23:36.019 [ INFO] 23873 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 37 ms. Found 0 JDBC repository interfaces.
+14:23:36.026 [ INFO] 23873 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+14:23:36.026 [ INFO] 23873 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+14:23:36.068 [ INFO] 23873 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 33 ms. Found 6 JPA repository interfaces.
+14:23:36.736 [ INFO] 23873 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+14:23:36.743 [ INFO] 23873 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+14:23:36.744 [ INFO] 23873 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.71]
+14:23:36.796 [ INFO] 23873 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+14:23:36.797 [ INFO] 23873 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1448 ms
+14:23:36.939 [ INFO] 23873 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+14:23:36.981 [ INFO] 23873 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.14.Final
+14:23:37.115 [ INFO] 23873 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+14:23:37.203 [ INFO] 23873 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+14:23:37.331 [ INFO] 23873 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+14:23:37.357 [ INFO] 23873 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL55Dialect
+14:23:37.386 [ INFO] 23873 --- [restartedMain] Hibernate Types                          : This framework is proudly powered by:
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+ _    _                           _     _
+| |  | |                         (_)   | |
+| |__| |_   _ _ __   ___ _ __ ___ _ ___| |_ ___ _ __   ___ ___
+|  __  | | | | '_ \ / _ \ '__/ __| / __| __/ _ \ '_ \ / __/ _ \
+| |  | | |_| | |_) |  __/ |  \__ \ \__ \ ||  __/ | | | (_|  __/
+|_|  |_|\__, | .__/ \___|_|  |___/_|___/\__\___|_| |_|\___\___|
+         __/ | |
+        |___/|_|
+
+At Hypersistence, we only build amazing tools, like Hibernate Types, Flexy Pool, or Hypersistence Optimizer.
+
+What if there were a tool that could automatically detect JPA and Hibernate performance issues?
+
+Hypersistence Optimizer is that tool! For more details, go to: 
+
+https://vladmihalcea.com/hypersistence-optimizer/
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+14:23:38.034 [ INFO] 23873 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+14:23:38.041 [ INFO] 23873 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+14:23:38.685 [ WARN] 23873 --- [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: b12167fb-922e-4274-9517-220637e24783
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+14:23:38.871 [ WARN] 23873 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+14:23:38.920 [ INFO] 23873 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+14:23:39.354 [ INFO] 23873 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@bcde107, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5a659c99, org.springframework.security.web.context.SecurityContextPersistenceFilter@25de072b, org.springframework.security.web.header.HeaderWriterFilter@11cda398, org.springframework.web.filter.CorsFilter@796c0c53, org.springframework.security.web.authentication.logout.LogoutFilter@66d383e1, com.cloud.secure.streaming.config.security.AuthTokenFilter@2c7db279, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@42783375, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1bd7ab7a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1d3e6e35, org.springframework.security.web.session.SessionManagementFilter@71da2527, org.springframework.security.web.access.ExceptionTranslationFilter@57e3be6b, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@65ffdc27]
+14:23:39.805 [ INFO] 23873 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+14:23:39.838 [ INFO] 23873 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+14:23:39.851 [ INFO] 23873 --- [restartedMain] com.cloud.secure.streaming.Application   : Started Application in 4.796 seconds (JVM running for 5.503)
