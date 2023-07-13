@@ -31,10 +31,10 @@ public class Product extends BaseEntity implements Serializable {
     @Column(name = "name", length = 64)
     private String name;
 
-    @Column(name = "sale_price")
+    @Column(name = "sale_price", columnDefinition = "double default 0")
     private double price;
 
-    @Column(name = "quantity", length = 255)
+    @Column(name = "quantity", columnDefinition = "int default 0")
     private int quantity;
 
     @Column(name = "status")

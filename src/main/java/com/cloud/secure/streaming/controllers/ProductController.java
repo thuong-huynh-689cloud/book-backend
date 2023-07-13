@@ -1,7 +1,6 @@
 package com.cloud.secure.streaming.controllers;
 
-import com.cloud.secure.streaming.common.enums.Status;
-import com.cloud.secure.streaming.common.enums.UserRole;
+import com.cloud.secure.streaming.common.enums.*;
 import com.cloud.secure.streaming.common.exceptions.ApplicationException;
 import com.cloud.secure.streaming.common.utilities.RestAPIResponse;
 import com.cloud.secure.streaming.common.utilities.RestAPIStatus;
@@ -31,6 +30,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -199,18 +199,25 @@ public class ProductController extends AbstractBaseController {
     public ResponseEntity<RestAPIResponse> getProducts(
 
             @RequestParam(name = "search_key", required = false, defaultValue = "") String searchKey,
-            @RequestParam(name = "is_asc", required = false, defaultValue = "false") boolean isAsc,
-            @RequestParam(name = "sort_field", required = false, defaultValue = "createdDate") String sortField,
-            @RequestParam(name = "category_ids", required = false) List<String> categoryIds,
-
-            @RequestParam(name = "from_price", required = false) Double fromPrice,
-            @RequestParam(name = "to_price", required = false) Double toPrice,
+            @RequestParam(name = "sort_field", required = false, defaultValue = "createdDate") SortFieldProduct
+                    sortFieldProduct,
+            @RequestParam(value = "sort_direction", required = false, defaultValue = "ASC") SortDirection
+                    sortDirection, // ASC or DESC
+            @RequestParam(name = "statuses", required = false) List<Status> statuses, // ACTIVE,INACTIVE,PENDING
             @RequestParam(name = "page_number", required = false, defaultValue = "1") int pageNumber,
             @RequestParam(name = "page_size", required = false, defaultValue = "10") int pageSize
     ) {
+        // validate page number and page size
+        Validator.mustGreaterThanOrEqual(1, RestAPIStatus.BAD_REQUEST,
+                APIStatusMessage.INVALID_PAGE_NUMBER_OR_PAGE_SIZE, pageNumber, pageSize);
+
+        // check statuses
+        if (statuses == null || statuses.isEmpty()) {
+            statuses = Arrays.asList(Status.values());
+        }
+
         //get all product in list product
-        Page<Product> productPage = productService.getProductPage(searchKey.trim(), isAsc, sortField, categoryIds,
-                fromPrice, toPrice, pageNumber, pageSize);
+        Page<Product> productPage = productService.getProductPage(searchKey.trim(), sortFieldProduct,sortDirection,statuses,pageNumber, pageSize);
 
         // get category
         List<ProductResponse> productResponses = new ArrayList<>();

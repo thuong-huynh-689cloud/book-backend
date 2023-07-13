@@ -1,5 +1,7 @@
 package com.cloud.secure.streaming.services;
 
+import com.cloud.secure.streaming.common.enums.SortDirection;
+import com.cloud.secure.streaming.common.enums.SortFieldProduct;
 import com.cloud.secure.streaming.common.enums.Status;
 import com.cloud.secure.streaming.entities.Product;
 import com.cloud.secure.streaming.repositories.ProductRepository;
@@ -44,39 +46,19 @@ public class ProductServiceImpl implements ProductService {
         productRepository.saveAll(products);
     }
 
+
     @Override
-    public Page<Product> getByNameContaining(String name, boolean isAsc, String field, int pageNumber, int pageSize) {
-        String properties = "";
-        switch (field) {
-            case "name":
-                properties = "name";
-                break;
-            case "status":
-                properties = "status";
-                break;
-            case "sku":
-                properties = "sku";
-                break;
-            default:
-                properties = "createdDate";
-                break;
+    public Page<Product> getProductPage(String searchKey, SortFieldProduct sortFieldProduct, SortDirection sortDirection ,List<Status> statuses,int pageNumber,int pageSize) {
+
+        Sort.Direction direction = Sort.Direction.ASC;
+        if (sortDirection.equals(SortDirection.DESC)) {
+            direction = Sort.Direction.DESC;
         }
-        Sort.Direction direction = isAsc ? Sort.Direction.ASC : Sort.Direction.DESC;
-
-        Sort sort = Sort.by(direction, properties);
-
+        Sort sort = Sort.by(direction, sortFieldProduct.toString());
         Pageable pageable = PageRequest.of(pageNumber - 1, pageSize, sort);
 
+        return productRepository.getByNameContaining("%" + searchKey + "%", statuses, pageable);
 
-        return productRepository.getByNameContaining(Status.ACTIVE, "%" + name + "%", pageable);
-    }
-
-    @Override
-    public Page<Product> getProductPage(String searchKey, boolean isAsc, String sortField, List<String>categoryIds, Double fromPrice, Double toPrice, int page, int size) {
-        Specification<Product> specification = productSpecification.doFilterProduct(searchKey,isAsc,sortField,categoryIds,fromPrice,toPrice);
-
-        PageRequest pageable = PageRequest.of(page - 1, size);
-        return productRepository.findAll(specification,pageable);
     }
 
 
