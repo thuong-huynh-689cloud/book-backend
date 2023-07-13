@@ -1,16 +1,18 @@
 package com.cloud.secure.streaming.controllers.helper;
 
 import com.cloud.secure.streaming.common.enums.Status;
+import com.cloud.secure.streaming.common.utilities.DateUtil;
 import com.cloud.secure.streaming.common.utilities.UniqueID;
-import com.cloud.secure.streaming.config.security.AuthUser;
 import com.cloud.secure.streaming.controllers.model.request.CreateProductRequest;
 import com.cloud.secure.streaming.controllers.model.request.UpdateProductRequest;
 import com.cloud.secure.streaming.entities.Product;
 import org.springframework.stereotype.Component;
 
+import java.util.Date;
+
 @Component
 public class ProductHelper {
-        public Product createProduct(CreateProductRequest createProductRequest, String userId) {
+    public Product createProduct(CreateProductRequest createProductRequest, String userId) {
         Product product = new Product();
         //add id to data
         product.setId(UniqueID.getUUID());
@@ -20,13 +22,14 @@ public class ProductHelper {
         product.setName(createProductRequest.getName());
         //add SalePrice to data
         product.setPrice(createProductRequest.getPrice());
-       //add Quantity to data
+        //add Quantity to data
         product.setQuantity(createProductRequest.getQuantity());
         //add Status to data
         product.setStatus(Status.ACTIVE);
         //add Description to data
         product.setDescription(createProductRequest.getDescription());
-
+        // add createDate to date
+        product.setCreatedDate(DateUtil.convertToUTC(new Date()));
         return product;
     }
 
@@ -47,7 +50,7 @@ public class ProductHelper {
         }
         // check description
         if (updateProductRequest.getDescription() != null && !updateProductRequest.getDescription().trim().isEmpty() &&
-                !updateProductRequest.getDescription().trim().equals(product.getDescription())){
+                !updateProductRequest.getDescription().trim().equals(product.getDescription())) {
             product.setDescription(updateProductRequest.getDescription());
         }
 

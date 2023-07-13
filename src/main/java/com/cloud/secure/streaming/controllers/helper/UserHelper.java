@@ -27,8 +27,6 @@ public class UserHelper {
         user.setLastName(createUserRequest.getLastName());
         //add status to data
         user.setStatus(Status.ACTIVE);
-        //add date to data
-        user.setCreatedDate(DateUtil.convertToUTC(new Date()));
         //add salt to data
         String newSalt = AppUtil.generateSalt();
         user.setPasswordSalt(newSalt);
@@ -43,7 +41,9 @@ public class UserHelper {
         user.setAddress(createUserRequest.getAddress());
         // add phoneNumber to data
         user.setPhoneNumber(createUserRequest.getPhoneNumber());
-
+        //add date to data
+        user.setCreatedDate(DateUtil.convertToUTC(new Date()));
+        
         return user;
     }
 
