@@ -90,7 +90,7 @@ public class UserControllers extends AbstractBaseController {
         // check id
         User user = userService.getById(id);
         // update user
-        user = userHelper.updateUser(user, updateUserRequest, passwordEncoder);
+        user = userHelper.updateUser(user, updateUserRequest);
         userService.saveUser(user);
 
         return responseUtil.successResponse(user);

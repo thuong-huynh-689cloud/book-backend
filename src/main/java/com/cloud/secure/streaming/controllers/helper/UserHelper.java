@@ -1,10 +1,8 @@
 package com.cloud.secure.streaming.controllers.helper;
 
 import com.cloud.secure.streaming.common.enums.Status;
-import com.cloud.secure.streaming.common.enums.UserRole;
 import com.cloud.secure.streaming.common.exceptions.ApplicationException;
 import com.cloud.secure.streaming.common.utilities.*;
-import com.cloud.secure.streaming.controllers.model.request.CreateSignUpRequest;
 import com.cloud.secure.streaming.controllers.model.request.CreateUserRequest;
 import com.cloud.secure.streaming.controllers.model.request.UpdateUserRequest;
 import com.cloud.secure.streaming.entities.User;
@@ -49,7 +47,7 @@ public class UserHelper {
         return user;
     }
 
-    public User updateUser(User user, UpdateUserRequest updateUserRequest, PasswordEncoder passwordEncoder) {
+    public User updateUser(User user, UpdateUserRequest updateUserRequest) {
 
         // check fist name
         if (updateUserRequest.getFirstName() != null && !updateUserRequest.getFirstName().trim().isEmpty() &&

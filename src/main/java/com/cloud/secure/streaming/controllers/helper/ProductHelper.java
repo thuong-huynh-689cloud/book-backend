@@ -19,15 +19,11 @@ public class ProductHelper {
         //add Name to data
         product.setName(createProductRequest.getName());
         //add SalePrice to data
-        product.setSalePrice(createProductRequest.getSalePrice());
+        product.setPrice(createProductRequest.getPrice());
        //add Quantity to data
         product.setQuantity(createProductRequest.getQuantity());
         //add Status to data
         product.setStatus(Status.ACTIVE);
-        //add Rank to data
-        product.setRank(createProductRequest.getRank());
-        //add Sku to data
-        product.setSku(createProductRequest.getSku());
         //add Description to data
         product.setDescription(createProductRequest.getDescription());
 
@@ -42,28 +38,18 @@ public class ProductHelper {
             product.setName(updateProductRequest.getName().trim());
         }
         // check sale price
-        if (updateProductRequest.getSalePrice() != null) {
-            product.setSalePrice(updateProductRequest.getSalePrice());
+        if (updateProductRequest.getPrice() != null) {
+            product.setPrice(updateProductRequest.getPrice());
         }
         // check quantity
         if (updateProductRequest.getQuantity() != null) {
             product.setQuantity(updateProductRequest.getQuantity());
-        }
-        // check rank
-        if (updateProductRequest.getRank() != null) {
-            product.setRank(updateProductRequest.getRank());
-        }
-        // check sku
-        if (updateProductRequest.getSku() != null && !updateProductRequest.getSku().trim().isEmpty() &&
-                !updateProductRequest.getSku().trim().equals(product.getSku())) {
-            product.setSku(updateProductRequest.getSku());
         }
         // check description
         if (updateProductRequest.getDescription() != null && !updateProductRequest.getDescription().trim().isEmpty() &&
                 !updateProductRequest.getDescription().trim().equals(product.getDescription())){
             product.setDescription(updateProductRequest.getDescription());
         }
-
 
         return product;
     }

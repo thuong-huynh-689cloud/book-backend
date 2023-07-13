@@ -32,7 +32,7 @@ public class Product extends BaseEntity implements Serializable {
     private String name;
 
     @Column(name = "sale_price")
-    private double salePrice;
+    private double price;
 
     @Column(name = "quantity", length = 255)
     private int quantity;
@@ -40,12 +40,6 @@ public class Product extends BaseEntity implements Serializable {
     @Column(name = "status")
     @Enumerated(EnumType.STRING)
     private Status status;
-
-    @Column(name = "`rank`") // add character `` b/c cannot save data to db with rank name without ``
-    private int rank;
-
-    @Column(name = "sku", length = 255)
-    private String sku;
 
     @Column(name = "description", columnDefinition = "TEXT")
     private String description;

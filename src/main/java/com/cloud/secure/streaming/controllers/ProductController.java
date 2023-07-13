@@ -18,9 +18,11 @@ import com.cloud.secure.streaming.controllers.model.response.ProductResponse;
 import com.cloud.secure.streaming.entities.Category;
 import com.cloud.secure.streaming.entities.Product;
 import com.cloud.secure.streaming.entities.ProductCategory;
+import com.cloud.secure.streaming.entities.User;
 import com.cloud.secure.streaming.services.CategoryService;
 import com.cloud.secure.streaming.services.ProductCategoryService;
 import com.cloud.secure.streaming.services.ProductService;
+import com.cloud.secure.streaming.services.UserService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import org.springframework.data.domain.Page;
@@ -44,13 +46,15 @@ public class ProductController extends AbstractBaseController {
     final CategoryService categoryService;
     final ProductCategoryService productCategoryService;
     final ProductCategoryHelper productCategoryHelper;
+    final UserService userService;
 
-    public ProductController(ProductService productService, ProductHelper productHelper, CategoryService categoryService, ProductCategoryService productCategoryService, ProductCategoryHelper productCategoryHelper) {
+    public ProductController(ProductService productService, ProductHelper productHelper, CategoryService categoryService, ProductCategoryService productCategoryService, ProductCategoryHelper productCategoryHelper, UserService userService) {
         this.productService = productService;
         this.productHelper = productHelper;
         this.categoryService = categoryService;
         this.productCategoryService = productCategoryService;
         this.productCategoryHelper = productCategoryHelper;
+        this.userService = userService;
     }
 
     /**
@@ -58,7 +62,7 @@ public class ProductController extends AbstractBaseController {
      *
      * @return
      */
-    @AuthorizeValidator({UserRole.ADMIN})
+    @AuthorizeValidator({UserRole.ADMIN, UserRole.STAFF})
     @PostMapping()
     @Operation(summary = "Create Product")
     public ResponseEntity<RestAPIResponse> createProduct(
@@ -68,6 +72,9 @@ public class ProductController extends AbstractBaseController {
         Product product = null;
 
         if (authUser.getRole().equals(UserRole.ADMIN)) {
+
+            User user = userService.getById(createProductRequest.getUserId());
+            Validator.notNull(user, RestAPIStatus.NOT_FOUND, "user not found");
 
             product = productHelper.createProduct(createProductRequest, createProductRequest.getUserId());
         } else {
@@ -116,7 +123,7 @@ public class ProductController extends AbstractBaseController {
      * @param updateProductRequest
      * @return
      */
-
+    @AuthorizeValidator({UserRole.ADMIN, UserRole.STAFF})
     @PutMapping(path = ApiPath.ID)
     @Operation(summary = "Update Product")
     public ResponseEntity<RestAPIResponse> updateProduct(
@@ -156,7 +163,7 @@ public class ProductController extends AbstractBaseController {
      * @param ids
      * @return
      */
-
+    @AuthorizeValidator({UserRole.ADMIN, UserRole.STAFF})
     @DeleteMapping()
     @Operation(summary = "Delete Product")
     public ResponseEntity<RestAPIResponse> deleteProduct(

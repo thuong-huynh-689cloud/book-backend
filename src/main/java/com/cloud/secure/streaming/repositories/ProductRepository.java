@@ -20,7 +20,7 @@ public interface ProductRepository extends PagingAndSortingRepository<Product, S
 
     List<Product> findAllByIdInAndStatus(List<String> ids, Status status);
 
-    @Query("select p from Product p where p.status = :status and (p.name like :searchKey or p.sku like :searchKey)")
+    @Query("select p from Product p where p.status = :status and (p.name like :searchKey)")
     Page<Product> getByNameContaining(@Param("status") Status status,
                                       @Param("searchKey") String searchKey,
                                       Pageable pageable);

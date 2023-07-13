@@ -29,15 +29,11 @@ public class CreateProductRequest {
 
     private String userId;
 
-    private Double salePrice;
+    private Double price;
 
     @Max(value = 999999999,  message = ParamError.MAX_VALUE)
     @Min(value = 0, message = ParamError.MIN_VALUE)
     private Integer quantity;
-
-    private Integer rank;
-
-    private String sku;
 
     private String description;
 

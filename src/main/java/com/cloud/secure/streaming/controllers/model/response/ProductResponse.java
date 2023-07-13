@@ -20,11 +20,9 @@ public class ProductResponse {
     private String id;
     private String userId;
     private String name;
-    private double salePrice;
+    private double price;
     private int quantity;
     private Status status;
-    private int rank;
-    private String sku;
     private Date createdDate;
     private Date updatedDate;
     private String description;
@@ -34,11 +32,9 @@ public class ProductResponse {
         this.id = product.getId();
         this.userId = product.getUserId();
         this.name = product.getName();
-        this.salePrice = product.getSalePrice();
+        this.price = product.getPrice();
         this.quantity = product.getQuantity();
         this.status= product.getStatus();
-        this.rank = product.getRank();
-        this.sku = product.getSku();
         this.createdDate = product.getCreatedDate();
         this.updatedDate= product.getUpdatedDate();
         this.description = product.getDescription();
