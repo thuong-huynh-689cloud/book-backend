@@ -43,7 +43,7 @@ public class UserHelper {
         user.setPhoneNumber(createUserRequest.getPhoneNumber());
         //add date to data
         user.setCreatedDate(DateUtil.convertToUTC(new Date()));
-        
+
         return user;
     }
 

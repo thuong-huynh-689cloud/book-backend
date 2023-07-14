@@ -1,5 +1,6 @@
 package com.cloud.secure.streaming.controllers;
 
+import com.cloud.secure.streaming.common.enums.APIStatusMessage;
 import com.cloud.secure.streaming.common.enums.Status;
 import com.cloud.secure.streaming.common.exceptions.ApplicationException;
 import com.cloud.secure.streaming.common.utilities.*;
@@ -8,6 +9,7 @@ import com.cloud.secure.streaming.config.security.AuthUser;
 import com.cloud.secure.streaming.controllers.helper.SessionHelper;
 import com.cloud.secure.streaming.controllers.helper.UserHelper;
 import com.cloud.secure.streaming.controllers.model.request.AuthenticateRequest;
+import com.cloud.secure.streaming.controllers.model.request.ChangePasswordRequest;
 import com.cloud.secure.streaming.controllers.model.response.AuthInfoResponse;
 import com.cloud.secure.streaming.controllers.model.response.AuthenticateResponse;
 import com.cloud.secure.streaming.entities.Session;
@@ -104,6 +106,44 @@ public class AuthenticateController extends AbstractBaseController {
         return responseUtil.successResponse("Ok");
     }
 
+    /**
+     *  changePassword API
+     *
+     * @param changePasswordRequest
+     * @param authUser
+     * @return
+     */
+    @PutMapping(path = "/change-password")
+    @Operation(summary = "Change Password")
+    public ResponseEntity<RestAPIResponse> changePassword(
+            @Valid @RequestBody ChangePasswordRequest changePasswordRequest,
+            @Parameter(hidden = true) @AuthSession AuthUser authUser
+    ) {
+        //get user by authUser
+        User user = userService.getByIdAndStatus(authUser.getId(), Status.ACTIVE);
+        Validator.notNull(user, RestAPIStatus.NOT_FOUND, "USER_NOT_FOUND");
+        // Check current (old) password
+        if (!passwordEncoder.matches(changePasswordRequest.getOldPassword().trim().concat(user.getPasswordSalt()),
+                user.getPasswordHash())) {
+            throw new ApplicationException(RestAPIStatus.BAD_PARAMS, APIStatusMessage.CURRENT_PASSWORD_IS_INCORRECT);
+        }
+        // Validate new password
+        if (changePasswordRequest.getNewPassword().equals(changePasswordRequest.getOldPassword())) {
+            throw new ApplicationException(RestAPIStatus.BAD_PARAMS, APIStatusMessage.NEW_PASSWORD_MUST_BE_DIFFERENT_FROM_CURRENT_PASSWORD);
+        }
+        // Validate confirm new password
+        if (!changePasswordRequest.getNewPassword().equals(changePasswordRequest.getConfirmNewPassword())) {
+            throw new ApplicationException(RestAPIStatus.BAD_PARAMS, APIStatusMessage.CONFIRM_PASSWORD_DOES_NOT_FOUND);
+        }
+        // Set new password
+        String newSalt = AppUtil.generateSalt();
+        user.setPasswordHash(passwordEncoder.encode(changePasswordRequest.getNewPassword().trim().concat(newSalt)));
+        user.setPasswordSalt(newSalt);
+        userService.saveUser(user);
+
+        return responseUtil.successResponse("OK");
+    }
+
 //    /**
 //     * Request Reset Password API
 //     *
@@ -173,45 +213,7 @@ public class AuthenticateController extends AbstractBaseController {
 //        return responseUtil.successResponse("OK");
 //    }
 //
-//    /**
-//     * Change Password API
-//     *
-//     * @param changePasswordRequest
-//     * @param authUser
-//     * @return
-//     */
-//    @PutMapping(path = "/change-password")
-//    @Operation(summary = "Change Password")
-//    public ResponseEntity<RestAPIResponse> changePassword(
-//            @Valid @RequestBody ChangePasswordRequest changePasswordRequest,
-//            @Parameter(hidden = true) @AuthSession AuthUser authUser
-//    ) {
-//        //get user by authUser
-//        User user = userService.getByIdAndStatus(authUser.getId(), AppStatus.ACTIVE);
-//        Validator.notNull(user, RestAPIStatus.NOT_FOUND, APIStatusMessage.USER_NOT_FOUND);
-//        // Check current (old) password
-//        if (!passwordEncoder.matches(changePasswordRequest.getOldPassword().trim().concat(user.getPasswordSalt()),
-//                user.getPasswordHash())) {
-//            throw new ApplicationException(RestAPIStatus.BAD_PARAMS, APIStatusMessage.CURRENT_PASSWORD_IS_INCORRECT);
-//        }
-//        // Validate new password
-//        if (changePasswordRequest.getNewPassword().equals(changePasswordRequest.getOldPassword())) {
-//            throw new ApplicationException(RestAPIStatus.BAD_PARAMS,APIStatusMessage.NEW_PASSWORD_MUST_BE_DIFFERENT_FROM_CURRENT_PASSWORD);
-//        }
-//        // Validate confirm new password
-//        if (!changePasswordRequest.getNewPassword().equals(changePasswordRequest.getConfirmNewPassword())) {
-//            throw new ApplicationException(RestAPIStatus.BAD_PARAMS, APIStatusMessage.CONFIRM_PASSWORD_DOES_NOT_FOUND);
-//        }
-//        // Set new password
-//        String newSalt = AppUtil.generateSalt();
-//        user.setPasswordHash(passwordEncoder.encode(changePasswordRequest.getNewPassword().trim().concat(newSalt)));
-//        user.setPasswordSalt(newSalt);
-//        userService.save(user);
-//        // Send Notification (Email/SMS)
-//        emailSenderHelper.sendEmailChangePassword(user.getEmail(), user.getType(), user.getName(), changePasswordRequest.getLanguage());
 //
-//        return responseUtil.successResponse("OK");
-//    }
 //
 //    /**
 //     * Request Change Email API
