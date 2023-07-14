@@ -26,6 +26,7 @@ public class ProductResponse {
     private Date createdDate;
     private Date updatedDate;
     private String description;
+    private String image;
     private List<Category> categoryList;
 
     public ProductResponse(Product product, List<Category> categoryList) {
@@ -38,6 +39,7 @@ public class ProductResponse {
         this.createdDate = product.getCreatedDate();
         this.updatedDate= product.getUpdatedDate();
         this.description = product.getDescription();
+        this.image = product.getImage();
         this.categoryList = categoryList;
     }
 }

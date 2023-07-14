@@ -30,6 +30,8 @@ public class CreateProductRequest {
 
     private String description;
 
+    private String image;
+
     @NotEmpty(message = ParamError.FIELD_NAME)
     private List<String> categoryIds;
 }

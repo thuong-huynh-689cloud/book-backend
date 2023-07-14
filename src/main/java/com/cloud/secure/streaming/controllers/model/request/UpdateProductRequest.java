@@ -31,7 +31,7 @@ public class UpdateProductRequest {
 
     private String description;
 
+    private String image;
+
     private List<String> categoryIds;
-
-
 }
